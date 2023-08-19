@@ -12,6 +12,8 @@
 
 # Introdução
 
+Foi proposto um problema de busca dos K itens mais valiosos de um conjunto de dados. Nessa situação, os conjuntos de dados são arquivos que contém textos sem formatação (Arquivos ASCII), e os itens são palavras. A partir disso, pressupoê-se que estruturas de dados complexas que organizam e avaliam a preciosidade dos K itens (palavras) sejam devidamente operadas, bem como as estruturas auxiliares e variáveis que contribuem para a resolução do problema.
+
 # Descrição do Problema
 
 # Solução Proposta
