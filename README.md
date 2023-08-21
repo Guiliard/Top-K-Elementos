@@ -47,12 +47,24 @@ Nó código, foi-se utilizado o Min Heap com o seguinte objetivo: se o elemento 
 
 Dado as estruturas principais do programa, evidencia-se as funções contidas na classe ```Methods.cpp``` que tornam todo o processo de leitura, armazenamento e classificação dos dados:
 
-- ```Leitura```: 
-- ```Tratamento_para_Hash```: 
-- ```Cria_Hash```: 
-- ```Cria_Heap```: 
-- ```Opera_Heap```: 
-- ```Re_Heap```:
+- ```Leitura```: Função responsável por realizar a leitura dos múltiplos arquivos contidos na pasta "dataset", os quais se tornarão o conjunto de dados. É importante ressaltar que nem todas as palavras contidas no texto serão armazenadas, já que, palavras muito repetidas, tais como artigos e advérbios (informados no arquivo "stopwords.txt"), são descartadas. 
+- ```Tratamento_para_Hash```: Método que realiza um tratamento do texto lido, convertendo todas as letras maiúsculas para minúsculas e retirando os seguintes sinais de pontuação:
+
+  * ','
+  * ':'
+  * ';'
+  * '/'
+  * '"'
+  * '!'
+  * '?'
+  * '('
+  * ')'
+  * '--'
+- ```Cria_Hash```: Função responsável por tokenizar o texto, remover as stopwords e adicionar as palavras obtidas na hash. 
+- ```Cria_Heap```: Método que faz a administração e controle dos itens que estão no heap, substituindo a menor palavra contida no <i>array</i> por outra de maior frequência contida na hash até que as K palavras mais frequêntes estejam localizadas nesse vetor que simula uma árvore. 
+- ```Opera_Heap```: Função responsável por administrar o próprio heap, realizando trocas (<i>swaps</i>) entre os elementos com a seguinte condição:
+  * Caso o elemento filho (posição 2*i e 2*i + 1) seja menor do que a posição pai (i), é realizado um traca entre as posições. Com isso, após tal processo, o menor elemento se encontrará na posição 0 do <i>array</i>.
+- ```Re_Heap```: Cópia da função ```Opera_Heap```, contudo, possuindo o objetivo de conferir se todo pai (raíz) é menor que seus filhos (folhas) e, caso não seja, realizando trocas até que tal situação se torne verdade. 
 
 # Casos Especiais
 
