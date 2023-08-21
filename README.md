@@ -31,15 +31,18 @@ Para o processo de leitura, considera-se as seguintes limitações:
 - ```Methods.cpp``` : Arquivo que contém a estruturação das funções envolvidas. <br>
 - ```main.cpp``` : Arquivo mais importante, responsável por chamar as funções contidas nas classes e realizar o processo de seleção das K palavras mais valiosas.<br>
 
-Em primeiro lugar, vale ressaltar que a estrutura utilizada para armazenar as palavras do texto (tabela hash) encontra-se como atributo da classe ```Methods.hpp```. Tal estrutura é pré-determinada, ou seja, não foi elaborada no código, mas sim utilizada a partir da inclusão de bibliotecas no programa. Já o heap foi contruído pelo próprio programador, utilizando a lógica original do método de ordenação ```Heap Sort```. 
+Em primeiro lugar, vale ressaltar que a estrutura utilizada para armazenar as palavras do texto (tabela hash) encontra-se como atributo da classe ```Methods.hpp```. Tal estrutura é pré-determinada, ou seja, não foi elaborada no código, mas sim utilizada a partir da inclusão de bibliotecas no programa. Já o heap foi contruído pelo próprio programador, utilizando a lógica original do método de busca do elemento de maior prioridade. 
 
 <strong><h4>Hash :</h4></strong>
 
 A tabela hash, ou tabela de dispersão, é uma estrutura de dados utilizada para armazenar grandes conjunto de dados associados a chaves de forma eficiente. Essas chaves, que são utilizadas como indexação da tabela, são criadas por meio de funções matemáticas aleatórias.<br>
-Para toda hash, sua forma de armazenar está associado a um pair, ou seja, a duas inormações, sendo o pair.first o elemento que foi usado como idexação, e o pair.second o valor armazenado em si.
-A principal característica de tais estruturas é a sua capacidade de acessar valores rapidamente, com custo <i>O(n) = 1</i>. No programa em questão, foi-se utilizado a hash ```Unordered_Map```, a qual faz parte da biblioteca padrão da linguagem C++ e possui a não ordenação como principal característica, ou seja, para tal estrutura, a ordenação dos dados pouco importa.   
+Para toda hash, sua forma de armazenar está associado a um pair, ou seja, a duas inormações, sendo o ```pair.first``` o elemento que foi usado como idexação, e o ```pair.second``` o valor armazenado em si. <br>
+A principal característica de tais estruturas é a sua capacidade de acessar valores rapidamente, com custo <i>O(n) = 1</i>. No programa em questão, foi-se utilizado a hash ```Unordered_Map```, a qual faz parte da biblioteca padrão da linguagem C++ e possui a não ordenação como principal característica, ou seja, para tal estrutura, a ordenação dos dados pouco importa. <br>
+Em caso de armazenamento de elementos iguais, ocorre-se o fenômeno da colisão, ou seja, dois elementos possuem a mesma chave. Para que isso fosse evitado, e, também, com o intuito de realizar a contagem da frequência das palavras, desenvolveu-se a seguinte lócica: toda vez que ocorresse colisão, significaria que aquela palavra é repetida. Logo, a palavra mais repetida do conjunto de dados é aquela que mais gerou colisão na tabela hash. 
 
 <strong><h4>Heap :</h4></strong>
+
+O heap é uma estrura de dados utilizada para gerenciar e buscar o elemento de maior (Max Heap) ou menor (Min heap) importância, onde tal elemento, no final do processo, localiza-se na raíz da árvore. Nó código, foi-se utilizado o Min Heap com o seguinte objetivo: se o elemento da raíz dos K itens selecionados fosse menor do que algum elemento armazenado na hash, 
 
 # Casos Especiais
 
