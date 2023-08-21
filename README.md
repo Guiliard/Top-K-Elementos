@@ -16,7 +16,30 @@ Foi proposto um problema de busca dos K itens mais valiosos de um conjunto de da
 
 # Descrição do Problema
 
+Em um determinado número de arquivos ".data", encontram-se conjuntos de dados (textos), os quais devem ser lidos e tokenizados (separados em palavras). A partir disso, deve-se armazenar cada palavra em uma tabela hash (tabela de espalhamento), e, com ela, obter-se a frequência das palavras, ou seja, o número de vezes que ela aparece no texto. Depois disso, utilizando o conceito da estrutura heap (árvore de prioridades), deve-se selecionar as K palavras mais valiosas do texto, isto é, aquelas que mais se repetiram.
+Para o processo de leitura, considera-se as seguintes limitações:
+
+-  Cada sentença termina por um sinal de pontuação (".", "?", "!"").
+-  Cada parágrafo é separado por, pelo menos, uma linha em branco.
+-  Cada palavra é separada por espaços ou sinais de pontuação, sendo que os espaços devem estar tanto à direita quanta à esquerda.
+
 # Solução Proposta
+
+<p>Para esse tipo de problema, foi proposto um código que contém 3 arquivos: Methods.hpp, Methods.cpp e main.cpp.<br>
+
+- ```Methods.hpp``` : Classe que possui a declaração dos atributos (características) e métodos (funções) envolvidas no processo de armazenamento e contagem de palavras. <br>
+- ```Methods.cpp``` : Arquivo que contém a estruturação das funções envolvidas. <br>
+- ```main.cpp``` : Arquivo mais importante, responsável por chamar as funções contidas nas classes e realizar o processo de seleção das K palavras mais valiosas.<br>
+
+Em primeiro lugar, vale ressaltar que a estrutura utilizada para armazenar as palavras do texto (tabela hash) encontra-se como atributo da classe ```Methods.hpp```. Tal estrutura é pré-determinada, ou seja, não foi elaborada no código, mas sim utilizada a partir da inclusão de bibliotecas no programa. Já o heap foi contruído pelo próprio programador, utilizando a lógica original do método de ordenação ```Heap Sort```. 
+
+<strong><h4>Hash :</h4></strong>
+
+A tabela hash, ou tabela de dispersão, é uma estrutura de dados utilizada para armazenar grandes conjunto de dados associados a chaves de forma eficiente. Essas chaves, que são utilizadas como indexação da tabela, são criadas por meio de funções matemáticas aleatórias.<br>
+Para toda hash, sua forma de armazenar está associado a um pair, ou seja, a duas inormações, sendo o pair.first o elemento que foi usado como idexação, e o pair.second o valor armazenado em si.
+A principal característica de tais estruturas é a sua capacidade de acessar valores rapidamente, com custo <i>O(n) = 1</i>. No programa em questão, foi-se utilizado a hash ```Unordered_Map```, a qual faz parte da biblioteca padrão da linguagem C++ e possui a não ordenação como principal característica, ou seja, para tal estrutura, a ordenação dos dados pouco importa.   
+
+<strong><h4>Heap :</h4></strong>
 
 # Casos Especiais
 
