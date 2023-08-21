@@ -42,7 +42,17 @@ Em caso de armazenamento de elementos iguais, ocorre-se o fenômeno da colisão,
 
 <strong><h4>Heap :</h4></strong>
 
-O heap é uma estrura de dados utilizada para gerenciar e buscar o elemento de maior (Max Heap) ou menor (Min heap) importância, onde tal elemento, no final do processo, localiza-se na raíz da árvore. Nó código, foi-se utilizado o Min Heap com o seguinte objetivo: se o elemento da raíz dos K itens selecionados fosse menor do que algum elemento armazenado na hash, 
+O heap é uma estrura de dados utilizada para gerenciar e buscar o elemento de maior (Max Heap) ou menor (Min heap) importância, onde tal elemento, no final do processo, localiza-se na raíz da árvore. Para simular essa árvore, foi-se utilizado um vetor (<i>array</i>) para armazenar as K palavras, sendo certas posições desse vetor, escolhidos em base ao seu tamanho, possuem folhas, precisamente nas posições (2*i) e (2*i + 1). <br>
+Nó código, foi-se utilizado o Min Heap com o seguinte objetivo: se o elemento da raíz dos K itens selecionados fosse menor do que algum elemento armazenado na hash, há-se uma substituição entre tais elementos até que os os itens contidos no heap são os mais valiosos, atingindo, com isso, o objetivo final do trabalho. 
+
+Dado as estruturas principais do programa, evidencia-se as funções contidas na classe ```Methods.cpp``` que tornam todo o processo de leitura, armazenamento e classificação dos dados:
+
+- ```Leitura```
+- ```Tratamento_para_Hash```
+- ```Cria_Hash```
+- ```Cria_Heap```
+- ```Opera_Heap```
+- ```Re_Heap```
 
 # Casos Especiais
 
