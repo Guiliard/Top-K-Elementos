@@ -25,7 +25,7 @@ Para o processo de leitura, considera-se as seguintes limitações:
 
 Para o processo de saída, considera-se as seguintes regras:
 - Output legével.
-- Toda raíz do vetor heap sendo menor do que as suas folhas (processso esse que será explicado posteriormente).
+- Contrução lógica do heap (processo esse que será explicado posteriormente).
 
 # Solução Proposta
 
@@ -78,10 +78,16 @@ Com a interconexão de todas essas funções, a seleção dos K itens mais valio
 <strong><h4>Hash_stop_words :</h4></strong>
 Para que as palavras contidas no arquivo "stopwords.txt" fossem excluidas da massa de dados a ser trabalhada, foi-se criada uma tabela hash auxiliar, a qual contém todas as palavras que devem ser desconsideradas na prática em questão. Assim, comparava-se cada palavra a ser inserida da hash principal com os elementos da hash auxiliar, e apenas os diferentes eram inseridos. Com isso, obteve-se a exclusão ou o não armazenamento das palavras definidas como stopwords.
 
+- Sintaxe: ```unordered_map < tipo_chave, tipo_item> hash_stop_words ```
+
 <strong><h4>Confere_Heap :</h4></strong>
-Para pequenas massas de dados, 
+Para pequenas massas de dados, não se garante que apenas a função ```Opera_Heap``` seja suficiente para garantir que todo pai (raíz) de posição i seja menor que seus filhos (folhas) de posições 2*i e 2*i + 1. Portanto, para esse caso, criou-se a função ```Re_Heap```, cujo objetivo maior é garantir tal premissa.
 
 # Casos Sem Tratamento e Possíveis Erros
+
+Os limites do programa elaborado se concentram em tamanho e pontuações não tratadas. Evidenciando-se melhor, as estruturas de dados utilizadas, tanto as principais quanto as auxiliares, podem falhar com gigantescas massas de dados, ou seja, multiplos grandes arquivos. Além disso, se, em um arquivo do tipo ".data", existir algum sinal de pontuação que não foi tratada na função ```Tratamento_para_Hash```, as palavras que estão junto àquele sinal não serão tokenizadas da forma esperada.<br>
+Exemplo da situação acima:
+- Palavra "Casa&" -> '&' não foi um sinal tratado -> logo "Casa&" é diferente de "Casa" -> o que não condiz com a lógica do exercício.
 
 # Implementação
 
