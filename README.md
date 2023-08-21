@@ -37,8 +37,9 @@ Em primeiro lugar, vale ressaltar que a estrutura utilizada para armazenar as pa
 
 A tabela hash, ou tabela de dispersão, é uma estrutura de dados utilizada para armazenar grandes conjunto de dados associados a chaves de forma eficiente. Essas chaves, que são utilizadas como indexação da tabela, são criadas por meio de funções matemáticas aleatórias.<br>
 Para toda hash, sua forma de armazenar está associado a um pair, ou seja, a duas inormações, sendo o ```pair.first``` o elemento que foi usado como idexação, e o ```pair.second``` o valor armazenado em si. <br>
-A principal característica de tais estruturas é a sua capacidade de acessar valores rapidamente, com custo <i>O(n) = 1</i>. No programa em questão, foi-se utilizado a hash ```Unordered_Map```, a qual faz parte da biblioteca padrão da linguagem C++ e possui a não ordenação como principal característica, ou seja, para tal estrutura, a ordenação dos dados pouco importa. <br>
-Em caso de armazenamento de elementos iguais, ocorre-se o fenômeno da colisão, ou seja, dois elementos possuem a mesma chave. Para que isso fosse evitado, e, também, com o intuito de realizar a contagem da frequência das palavras, desenvolveu-se a seguinte lócica: toda vez que ocorresse colisão, significaria que aquela palavra é repetida. Logo, a palavra mais repetida do conjunto de dados é aquela que mais gerou colisão na tabela hash. 
+A principal característica de tais estruturas é a sua capacidade de acessar valores rapidamente, com custo <i>O(n) = 1</i>. No programa em questão, foi-se utilizado a hash ```Unordered_Map```, a qual faz parte da biblioteca padrão ```<map>``` da linguagem C++ e possui a não ordenação como principal característica, ou seja, para tal estrutura, a ordenação dos dados pouco importa. <br>
+Em caso de armazenamento de elementos iguais, ocorre-se o fenômeno da colisão, ou seja, dois elementos possuem a mesma chave. Para que isso fosse evitado, e, também, com o intuito de realizar a contagem da frequência das palavras, desenvolveu-se a seguinte lógica: toda vez que ocorresse colisão, significaria que aquela palavra é repetida. Logo, as K palavras mais repetidas do conjunto de dados são as K palavras que mais geraram colisão na tabela hash. <br>
+- Sintaxe: ```unordered_map < tipo_chave, tipo_item> hash ```
 
 <strong><h4>Heap :</h4></strong>
 
@@ -64,7 +65,9 @@ Dado as estruturas principais do programa, evidencia-se as funções contidas na
 - ```Cria_Heap```: Método que faz a administração e controle dos itens que estão no heap, substituindo a menor palavra contida no <i>array</i> por outra de maior frequência contida na hash até que as K palavras mais frequêntes estejam localizadas nesse vetor que simula uma árvore. 
 - ```Opera_Heap```: Função responsável por administrar o próprio heap, realizando trocas (<i>swaps</i>) entre os elementos com a seguinte condição:
   * Caso o elemento filho (posição 2*i e 2*i + 1) seja menor do que a posição pai (i), é realizado um traca entre as posições. Com isso, após tal processo, o menor elemento se encontrará na posição 0 do <i>array</i>.
-- ```Re_Heap```: Cópia da função ```Opera_Heap```, contudo, possuindo o objetivo de conferir se todo pai (raíz) é menor que seus filhos (folhas) e, caso não seja, realizando trocas até que tal situação se torne verdade. 
+- ```Re_Heap```: Cópia da função ```Opera_Heap```, contudo, possuindo o objetivo de conferir se todo pai (raíz) é menor que seus filhos (folhas) e, caso não seja, realizando trocas até que tal situação se torne verdade.
+
+Com a interconexão de todas essas funções, a seleção dos K itens mais valiosos do conjunto de dados se torna possível.
 
 # Casos Especiais
 
