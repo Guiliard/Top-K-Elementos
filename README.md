@@ -73,6 +73,12 @@ Dado as estruturas principais do programa, evidencia-se as funções contidas na
 
 Com a interconexão de todas essas funções, a seleção dos K itens mais valiosos do conjunto de dados se torna possível.
 
+<strong><h4>Arquivos :</h4></strong>
+
+<div align=center>
+<img src="https://github.com/Guiliard/Top-K-Elementos/assets/127882640/6f72300c-ee9a-4212-a8e8-65a8eb437a76.png" width="850px">
+</div>
+
 # Casos Especiais
 
 <strong><h4>Hash_stop_words :</h4></strong>
@@ -85,21 +91,17 @@ Para pequenas massas de dados, não se garante que apenas a função ```Opera_He
 
 # Casos Sem Tratamento e Possíveis Erros
 
-Os limites do programa elaborado se concentram em tamanho e pontuações não tratadas. Evidenciando-se melhor, as estruturas de dados utilizadas, tanto as principais quanto as auxiliares, podem falhar com gigantescas massas de dados, ou seja, multiplos grandes arquivos. Além disso, se, em um arquivo do tipo ".data", existir algum sinal de pontuação que não foi tratada na função ```Tratamento_para_Hash```, as palavras que estão junto àquele sinal não serão tokenizadas da forma esperada.<br>
+Os limites do programa elaborado se concentra em pontuações não tratadas. Evidenciando-se melhor, se, em um arquivo do tipo ".data", existir algum sinal de pontuação que não foi tratada na função ```Tratamento_para_Hash```, as palavras que estão junto àquele sinal não serão tokenizadas da forma esperada, resultando, nessa forma, em uma quebra de lógica do código.<br>
 Exemplo da situação acima:
 - Palavra "Casa&" -> '&' não foi um sinal tratado -> logo "Casa&" é diferente de "Casa" -> o que não condiz com a lógica do exercício.
-
-# Arquivos 
-
-<div align=center>
-<img src="https://github.com/Guiliard/Top-K-Elementos/assets/127882640/6f72300c-ee9a-4212-a8e8-65a8eb437a76.png" width="850px">
-</div>
 
 # Implementação
 
 # Conclusão
 
-De forma geral, o programa, orientado à objeto, se mostra eficiente para encontrar os K itens mais valiosos de uma coleção de dados. Seu custo computacional greal dado por <i> O(n * log k)</i>, onde <i>n</i> é o tamanho da coleção de dados e <i>K</i> é o número de itens mais valiosos. Além disso, vale ressaltar que quanto maior o arquivo "stopwords.txt" menor é o custo computacional associado, tendo em vista que tal operação minimiza o <i>n</i>. Por fim, afirma-se que o objetivo do trabalho foi cumprido com exelência, porém, o código é passivo de melhorias e otimizações, tais como aquelas discutidas na seção "Casos Sem Tratamento e Possíveis Erros".
+De forma geral, o programa, orientado à objeto, se mostra eficiente para encontrar os K itens mais valiosos de uma coleção de dados. Seu custo computacional greal dado por <i> O(n * log k)</i>, onde <i>n</i> é o tamanho da coleção de dados e <i>K</i> é o número de itens mais valiosos. Além disso, vale ressaltar que quanto maior o arquivo "stopwords.txt" menor é o custo computacional associado, tendo em vista que tal operação minimiza o <i>n</i>. <br>
+Em se tratando de estruturas, observa-se que a utilização de métodos diferentes dos aqui utilizados (logaritmos e lineares) tornariam o custo computacional maior, o que resultaria, possivelmente, em um tempo de execução não viável. <br>
+Por fim, afirma-se que o objetivo do trabalho foi cumprido com exelência, porém, o código é passivo de melhorias e otimizações, tais como aquelas discutidas na seção "Casos Sem Tratamento e Possíveis Erros".
 
 # Especificações do Dispositivo Utilizado
 
