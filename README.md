@@ -31,7 +31,7 @@ Para o processo de saída, considera-se as seguintes regras:
 
 <p>Para esse tipo de problema, foi proposto um código que contém 3 arquivos: Methods.hpp, Methods.cpp e main.cpp.<br>
 
-- ```Methods.hpp``` : Classe que possui a declaração dos atributos (características) e métodos (funções) envolvidas no processo de armazenamento e contagem de palavras. <br>
+- ```Methods.hpp``` : Classe que possui a declaração dos atributos (características) e métodos (funções) envolvidas no processo de armazenamento e contagem de palavras. É importante ressaltar que é nesse arquivo que se encontra a declaração do valor assumido por <i>K</i>. <br>
 - ```Methods.cpp``` : Arquivo que contém a estruturação das funções envolvidas. <br>
 - ```main.cpp``` : Arquivo mais importante, responsável por chamar as funções contidas nas classes e realizar o processo de seleção das K palavras mais valiosas.<br>
 
@@ -89,15 +89,17 @@ Os limites do programa elaborado se concentram em tamanho e pontuações não tr
 Exemplo da situação acima:
 - Palavra "Casa&" -> '&' não foi um sinal tratado -> logo "Casa&" é diferente de "Casa" -> o que não condiz com a lógica do exercício.
 
-# Implementação
-
-# Conclusão
-
 # Arquivos 
 
 <div align=center>
 <img src="https://github.com/Guiliard/Top-K-Elementos/assets/127882640/6f72300c-ee9a-4212-a8e8-65a8eb437a76.png" width="850px">
 </div>
+
+# Implementação
+
+# Conclusão
+
+De forma geral, o programa, orientado à objeto, se mostra eficiente para encontrar os K itens mais valiosos de uma coleção de dados. Seu custo computacional greal dado por <i> O(n * log k)</i>, onde <i>n</i> é o tamanho da coleção de dados e <i>K</i> é o número de itens mais valiosos. Além disso, vale ressaltar que quanto maior o arquivo "stopwords.txt" menor é o custo computacional associado, tendo em vista que tal operação minimiza o <i>n</i>. Por fim, afirma-se que o objetivo do trabalho foi cumprido com exelência, porém, o código é passivo de melhorias e otimizações, tais como aquelas discutidas na seção "Casos Sem Tratamento e Possíveis Erros".
 
 # Especificações do Dispositivo Utilizado
 
