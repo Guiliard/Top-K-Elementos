@@ -47,12 +47,12 @@ Nó código, foi-se utilizado o Min Heap com o seguinte objetivo: se o elemento 
 
 Dado as estruturas principais do programa, evidencia-se as funções contidas na classe ```Methods.cpp``` que tornam todo o processo de leitura, armazenamento e classificação dos dados:
 
-- ```Leitura```
-- ```Tratamento_para_Hash```
-- ```Cria_Hash```
-- ```Cria_Heap```
-- ```Opera_Heap```
-- ```Re_Heap```
+- ```Leitura```: 
+- ```Tratamento_para_Hash```: 
+- ```Cria_Hash```: 
+- ```Cria_Heap```: 
+- ```Opera_Heap```: 
+- ```Re_Heap```:
 
 # Casos Especiais
 
