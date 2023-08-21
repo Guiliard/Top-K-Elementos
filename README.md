@@ -23,6 +23,10 @@ Para o processo de leitura, considera-se as seguintes limitações:
 -  Cada parágrafo é separado por, pelo menos, uma linha em branco.
 -  Cada palavra é separada por espaços ou sinais de pontuação, sendo que os espaços devem estar tanto à direita quanta à esquerda.
 
+Para o processo de saída, considera-se as seguintes regras:
+- Output legével.
+- Toda raíz do vetor heap sendo menor do que as suas folhas (processso esse que será explicado posteriormente).
+
 # Solução Proposta
 
 <p>Para esse tipo de problema, foi proposto um código que contém 3 arquivos: Methods.hpp, Methods.cpp e main.cpp.<br>
@@ -71,11 +75,23 @@ Com a interconexão de todas essas funções, a seleção dos K itens mais valio
 
 # Casos Especiais
 
+<strong><h4>Hash_stop_words :</h4></strong>
+Para que as palavras contidas no arquivo "stopwords.txt" fossem excluidas da massa de dados a ser trabalhada, foi-se criada uma tabela hash auxiliar, a qual contém todas as palavras que devem ser desconsideradas na prática em questão. Assim, comparava-se cada palavra a ser inserida da hash principal com os elementos da hash auxiliar, e apenas os diferentes eram inseridos. Com isso, obteve-se a exclusão ou o não armazenamento das palavras definidas como stopwords.
+
+<strong><h4>Confere_Heap :</h4></strong>
+Para pequenas massas de dados, 
+
 # Casos Sem Tratamento e Possíveis Erros
 
 # Implementação
 
 # Conclusão
+
+# Arquivos 
+
+<div align=center>
+<img src="https://github.com/Guiliard/Top-K-Elementos/assets/127882640/6f72300c-ee9a-4212-a8e8-65a8eb437a76.png" width="850px">
+</div>
 
 # Especificações do Dispositivo Utilizado
 
