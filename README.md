@@ -36,7 +36,8 @@ Para o processo de saída, considera-se as seguintes regras:
 - ```Methods.cpp``` : Arquivo que contém a estruturação das funções envolvidas. <br>
 - ```main.cpp``` : Arquivo fonte, responsável por chamar as funções contidas nas classes e realizar o processo de seleção das <i>K</i> palavras mais valiosas.<br>
 
-Em primeiro lugar, vale ressaltar que a estrutura utilizada para armazenar as palavras do texto (tabela hash) encontra-se como atributo da classe ```Methods.hpp```. Tal estrutura é pré-determinada, ou seja, não foi elaborada no código, mas sim utilizada a partir da inclusão de bibliotecas no programa. Já o heap foi contruído pelo próprio programador, utilizando a lógica original do método de busca do elemento de maior prioridade. 
+Em primeiro lugar, vale ressaltar a classe utilizada para a construção do código em questão. 
+
 ```cpp
 typedef struct word
 {
@@ -75,6 +76,8 @@ class Leitor
     void Opera_Heap();
 };
 ```
+
+Ademais, evidencia-se que a estrutura utilizada para armazenar as palavras do texto (tabela hash) encontra-se como atributo da classe ```Methods.hpp```. Tal estrutura é pré-determinada, ou seja, não foi elaborada no código, mas sim utilizada a partir da inclusão de bibliotecas no programa. Já o heap foi contruído pelo próprio programador, utilizando a lógica original do método de busca do elemento de maior prioridade. 
 <strong><h4>Hash :</h4></strong>
 
 A tabela hash, ou tabela de dispersão, é uma estrutura de dados utilizada para armazenar grandes conjunto de informações associados a chaves de forma eficiente. Essas chaves, que são utilizadas como indexação da tabela, são criadas por meio de funções matemáticas aleatórias.<br>
