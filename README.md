@@ -77,7 +77,7 @@ class Leitor
 };
 ```
 
-Ademais, evidencia-se que a estrutura utilizada para armazenar as palavras do texto (tabela hash) encontra-se como atributo da classe ```Leitor``` declarada no arquivo  ```Methods.hpp```. Tal estrutura é pré-determinada, ou seja, não foi elaborada no código, mas sim utilizada a partir da inclusão de bibliotecas no programa. Já o heap foi contruído pelo próprio programador, utilizando a lógica original do método de busca do elemento de maior prioridade. 
+Ademais, evidencia-se que a estrutura utilizada para armazenar as palavras do texto (tabela hash) encontra-se como atributo da classe ```Leitor``` declarada no arquivo  ```Methods.hpp```. Tal estrutura é pré-determinada, ou seja, não foi elaborada no código, mas sim utilizada a partir da inclusão de bibliotecas no programa. Já o heap foi construído pelo próprio programador, utilizando a lógica original do método de busca do elemento de maior prioridade. 
 <strong><h4>Hash :</h4></strong>
 
 A tabela hash, ou tabela de dispersão, é uma estrutura de dados utilizada para armazenar grandes conjunto de informações associados a chaves de forma eficiente. Essas chaves, que são utilizadas como indexação da tabela, são criadas por meio de funções matemáticas aleatórias.<br>
