@@ -37,7 +37,44 @@ Para o processo de saída, considera-se as seguintes regras:
 - ```main.cpp``` : Arquivo fonte, responsável por chamar as funções contidas nas classes e realizar o processo de seleção das <i>K</i> palavras mais valiosas.<br>
 
 Em primeiro lugar, vale ressaltar que a estrutura utilizada para armazenar as palavras do texto (tabela hash) encontra-se como atributo da classe ```Methods.hpp```. Tal estrutura é pré-determinada, ou seja, não foi elaborada no código, mas sim utilizada a partir da inclusão de bibliotecas no programa. Já o heap foi contruído pelo próprio programador, utilizando a lógica original do método de busca do elemento de maior prioridade. 
+```cpp
+typedef struct word
+{
+    string palavra;
+    short int contador;
+}word;
 
+class Leitor
+{
+    private:
+    word palavra;
+    unordered_map <string, word> hash;
+    unordered_map <string, string> hash_stop_words;
+    vector <word> heap;
+
+    public:
+    Leitor();
+
+    void setPalavra (word palavra);
+    word getPalavra ();
+
+    void setHash (unordered_map <string, word> hash);
+    unordered_map <string, word> geTHash();
+
+    void setHash_Stop_Words (unordered_map <string, string> hash_stop_words);
+    unordered_map <string, string> getHash_Stop_Words();
+
+    void setVector (vector <word> ordenar);
+    vector <word> getVector();
+
+    string Leitura(ifstream &arq);
+    string Tratamento_para_Hash(ifstream &arq);
+
+    void Cria_Hash(ifstream &arq);
+    void Cria_Heap();
+    void Opera_Heap();
+};
+```
 <strong><h4>Hash :</h4></strong>
 
 A tabela hash, ou tabela de dispersão, é uma estrutura de dados utilizada para armazenar grandes conjunto de informações associados a chaves de forma eficiente. Essas chaves, que são utilizadas como indexação da tabela, são criadas por meio de funções matemáticas aleatórias.<br>
@@ -95,6 +132,135 @@ Exemplo da situação acima:
 - Palavra "Casa&" -> '&' não foi um sinal tratado -> logo "Casa&" é diferente de "Casa" -> o que não condiz com a lógica do exercício.
 
 # Implementação
+
+Considere os seguintes exemplos de entrada para o programa: 
+
+|   Entrada     |    Conteúdo                      | Quantidade de linhas |
+|---------------|----------------------------------|----------------------|
+| input1.data   |         Dom_Casmurro.txt         | 6385                 |
+| input2.data   | Semana_Machado_de_Assis.txt      | 27765                |
+| stopwords.txt | Artigos_e_Adjuntos.txt           | 207                  |
+
+<strong><h4>input1.data :</h4></strong>
+```
+Dom Casmurro
+
+Machado de Assis
+
+CAPÍTULO PRIMEIRO / DO TÍTULO
+
+Uma noite destas, vindo da cidade para o Engenho Novo, encontrei num trem da Central um rapaz
+aqui do bairro, que eu conheço de vista e de chapéu. Cumprimentou-me, sentou-se ao pé de mim,
+falou da lua e dos ministros, e acabou recitando-me versos. A viagem era curta, e os versos pode ser
+que não fossem inteiramente maus. Sucedeu, porém, que, como eu estava cansado, fechei os olhos
+três ou quatro vezes; tanto bastou para que ele interrompesse a leitura e metesse os versos no bolso.
+
+-- Continue, disse eu acordando.
+
+-- Já acabei, murmurou ele.
+
+-- São muito bonitos.
+
+Vi-lhe fazer um gesto para tirá-los outra vez do bolso, mas não passou do gesto; estava amuado. No
+dia seguinte entrou a dizer de mim nomes feios, e acabou alcunhando-me Dom Casmurro. Os
+vizinhos, que não gostam dos meus hábitos reclusos e calados, deram curso à alcunha, que afinal
+pegou. Nem por isso me zanguei. Contei a anedota aos amigos da cidade, e eles, por graça,
+chamam-me assim, alguns em bilhetes: "Dom Casmurro, domingo vou jantar com você."--"Vou
+para Petrópolis, Dom Casmurro; a casa é a mesma da Renania; vê se deixas essa caverna do
+Engenho Novo, e vai lá passar uns quinze dias comigo."--"Meu caro Dom Casmurro, não cuide que
+o dispenso do teatro amanhã; venha e dormirá aqui na cidade; dou-lhe camarote, dou-lhe chá, doulhe cama; só não lhe dou moça."
+Não consultes dicionários. Casmurro não está aqui no sentido que eles lhe dão, mas no que lhe pôs
+o vulgo de homem calado e metido consigo. Dom veio por ironia, para atribuir-me fumos de
+fidalgo. Tudo por estar cochilando! Também não achei melhor título para a minha narração - se não
+tiver outro daqui até ao fim do livro, vai este mesmo. O meu poeta do trem ficará sabendo que não
+lhe guardo rancor. E com pequeno esforço, sendo o título seu, poderá cuidar que a obra é sua. Há
+livros que apenas terão isso dos seus autores; alguns nem tanto.
+```
+
+<strong><h4>Resultado esperado :</h4></strong>
+```
+Arquivo 1: 
+0 Palavra: escobar --> Frequência: 110
+1 Palavra: padre --> Frequência: 111
+2 Palavra: vez --> Frequência: 147
+3 Palavra: tempo --> Frequência: 120
+4 Palavra: mim --> Frequência: 162
+5 Palavra: capÍtulo --> Frequência: 148
+6 Palavra: outra --> Frequência: 138
+7 Palavra: tão --> Frequência: 121
+8 Palavra: dias --> Frequência: 191
+9 Palavra: olhos --> Frequência: 164
+10 Palavra: josé --> Frequência: 160
+11 Palavra: assim --> Frequência: 156
+12 Palavra: agora --> Frequência: 146
+13 Palavra: ainda --> Frequência: 139
+14 Palavra: nada --> Frequência: 133
+15 Palavra: disse --> Frequência: 124
+16 Palavra: capitu --> Frequência: 338
+17 Palavra: mãe --> Frequência: 228
+18 Palavra: tudo --> Frequência: 189
+19 Palavra: casa --> Frequência: 168
+```
+
+<strong><h4>input2.data :</h4></strong>
+```
+A semana Texto-fonte: Obra Completa de Machado de Assis. 
+
+Rio de Janeiro: Nova Aguilar, Vol. 
+
+III, . 
+
+Publicado originalmente na Gazeta de Notícias, Rio de Janeiro, de // a //.   
+
+de abril Na segunda feira da semana que findou, acordei cedo, pouco depois das galinhas, e dei-me ao gosto de propor a mim mesmo um problema. 
+
+Verdadeiramente era uma charada; mas o nome de problema dá dignidade, e excita para logo a atenção dos leitores austeros. 
+
+Sou como as atrizes, que já não fazem benefício, mas festa artística. 
+
+A coisa é a mesma, os bilhetes crescem de igual modo, seja em número, seja em preço; o resto, comédia, drama, opereta, uma polca entre dois atos, uma poesia, vários ramalhetes, lampiões fora, e os colegas em grande gala, oferecendo em cena o retrato à beneficiada. 
+
+Tudo pede certa elevação. 
+
+Conheci dois velhos estimáveis, vizinhos, que esses tinham todos os dias a sua festa artística. 
+
+Um era Cavaleiro da Ordem da Rosa, por serviços em relação à guerra do Paraguai; o outro tinha o posto de tenente da guarda nacional da reserva, a que prestava bons serviços. 
+
+Jogavam xadrez, e dormiam no intervalo das jogadas. 
+
+Despertavam-se um ao outro desta maneira: “Caro major” -”Pronto, comendador” — Variavam às vezes: — “Caro comendador” -”Aí vou, major”. 
+
+Tudo pede certa elevação. 
+
+Para não ir mais longe, Tiradentes. 
+
+Aqui está um exemplo. 
+```
+
+<strong><h4>Resultado esperado :</h4></strong>
+```
+Arquivo 2: 
+0 Palavra: onde --> Frequência: 333
+1 Palavra: porque --> Frequência: 337
+2 Palavra: grande --> Frequência: 406
+3 Palavra: vez --> Frequência: 353
+4 Palavra: todos --> Frequência: 454
+5 Palavra: outros --> Frequência: 417
+6 Palavra: tempo --> Frequência: 373
+7 Palavra: bem --> Frequência: 359
+8 Palavra: pode --> Frequência: 524
+9 Palavra: assim --> Frequência: 454
+10 Palavra: outra --> Frequência: 435
+11 Palavra: aqui --> Frequência: 419
+12 Palavra: dois --> Frequência: 384
+13 Palavra: coisa --> Frequência: 383
+14 Palavra: dia --> Frequência: 366
+15 Palavra: menos --> Frequência: 360
+16 Palavra: ainda --> Frequência: 629
+17 Palavra: tudo --> Frequência: 560
+18 Palavra: outro --> Frequência: 474
+19 Palavra: homem --> Frequência: 471
+```
 
 # Conclusão
 
