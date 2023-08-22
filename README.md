@@ -117,9 +117,11 @@ Com a interconexão de todas essas funções, a seleção dos <i>K</i> itens mai
 
 <strong><h4>Arquivos separados em pastas:</h4></strong>
 
+
 <div align=center>
-<img src="https://github.com/Guiliard/Top-K-Elementos/assets/127882640/6f72300c-ee9a-4212-a8e8-65a8eb437a76.png" width="850px">
+<img src="https://github.com/Guiliard/Top-K-Elementos/assets/127882640/1b325d47-1b6f-44ef-b591-c94b62869e52.png" width="850px">
 </div>
+
 
 # Casos Especiais
 
