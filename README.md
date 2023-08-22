@@ -26,6 +26,7 @@ Para o processo de leitura, considera-se as seguintes instruções:
 Para o processo de saída, considera-se as seguintes regras:
 - Output legível.
 - Construção lógica do heap (processo esse que será explicado posteriormente).
+- Deve-se desconsiderar da massa de dados as palavras definidas como "stopwords.txt".
 
 # Solução Proposta
 
@@ -44,6 +45,7 @@ Para toda hash, sua forma de armazenar está associado a um ```pair```, ou seja,
 A principal característica de tais estruturas é a sua capacidade de acessar valores rapidamente, com custo <i>O(n) = 1</i>. No programa em questão, foi-se utilizado a hash ```unordered_map```, a qual faz parte da biblioteca padrão ```<map>``` da linguagem C++ e possui a não ordenação como principal característica, ou seja, para tal estrutura, a ordem dos dados pouco importa. <br>
 Em caso de armazenamento de elementos iguais, ocorre-se o fenômeno da colisão, ou seja, dois elementos possuem a mesma chave. Para que isso fosse evitado, e, também, com o intuito de realizar a contagem da frequência das palavras, desenvolveu-se a seguinte lógica: toda vez que ocorresse colisão, significaria que aquela palavra é repetida. Logo, as K palavras mais repetidas do conjunto de dados são as <i>K</i> palavras que mais geraram colisão na tabela hash. <br>
 - Sintaxe: ```unordered_map <tipo_chave, tipo_item> hash ```
+- Custo: <i>O(1) * n</i>, onde <i>n</i> é o número de itens (palavras) inseridas, ou seja, custo <i>n</i>.
 
 <strong><h4>Heap :</h4></strong>
 
@@ -84,14 +86,14 @@ Com a interconexão de todas essas funções, a seleção dos <i>K</i> itens mai
 <strong><h4>Hash_stop_words :</h4></strong>
 Para que as palavras contidas no arquivo "stopwords.txt" fossem excluidas da massa de dados a ser trabalhada, foi-se criada uma tabela hash auxiliar, a qual contém todas as palavras que devem ser desconsideradas na prática em questão. Assim, comparava-se cada palavra a ser inserida da hash principal com os elementos da hash auxiliar, e apenas os diferentes eram inseridos. Com isso, obteve-se a exclusão ou o não armazenamento das palavras definidas como stopwords.
 
-- Sintaxe: ```unordered_map < tipo_chave, tipo_item> hash_stop_words ```
+- Sintaxe: ```unordered_map <tipo_chave, tipo_item> hash_stop_words ```
 
-<strong><h4>Confere_Heap :</h4></strong>
-Para pequenas massas de dados, não se garante que apenas a função ```Opera_Heap``` seja suficiente para garantir que todo pai (raíz) de posição i seja menor que seus filhos (folhas) de posições 2*i e 2*i + 1. Portanto, para esse caso, criou-se a função ```Re_Heap```, cujo objetivo maior é garantir tal premissa.
+<strong><h4>Re_Heap :</h4></strong>
+Para pequenas massas de dados, não se garante que apenas a função ```Opera_Heap``` seja suficiente para garantir que todo pai (raíz) de posição i seja menor que seus filhos (folhas) de posições 2*i e 2*i + 1. Portanto, para esse caso, criou-se a função ```Re_Heap```, cujo objetivo maior é garantir que tal premissa seja verdadeira para qualquer massa de dados.
 
 # Casos Sem Tratamento e Possíveis Erros
 
-Os limites do programa elaborado se concentra em pontuações não tratadas. Evidenciando-se melhor, se, em um arquivo do tipo ".data", existir algum sinal de pontuação que não foi tratada na função ```Tratamento_para_Hash```, as palavras que estão junto àquele sinal não serão tokenizadas da forma esperada, resultando, nessa forma, em uma quebra de lógica do código.<br>
+Os limites do programa elaborado se concentram em pontuações não tratadas. Evidenciando-se melhor, se, em um arquivo do tipo ".data", existir algum sinal de pontuação que não foi tratada na função ```Tratamento_para_Hash```, as palavras que estão junto àquele sinal não serão tokenizadas da forma esperada, resultando, dessa forma, em uma quebra de lógica do código.<br>
 Exemplo da situação acima:
 - Palavra "Casa&" -> '&' não foi um sinal tratado -> logo "Casa&" é diferente de "Casa" -> o que não condiz com a lógica do exercício.
 
@@ -99,8 +101,8 @@ Exemplo da situação acima:
 
 # Conclusão
 
-De forma geral, o programa, orientado à objeto, se mostra eficiente para encontrar os K itens mais valiosos de uma coleção de dados. Seu custo computacional greal dado por <i> O(n * log k)</i>, onde <i>n</i> é o tamanho da coleção de dados e <i>K</i> é o número de itens mais valiosos. Além disso, vale ressaltar que quanto maior o arquivo "stopwords.txt" menor é o custo computacional associado, tendo em vista que tal operação minimiza o <i>n</i>. <br>
-Em se tratando de estruturas, observa-se que a utilização de métodos diferentes dos aqui utilizados (logaritmos e lineares) tornariam o custo computacional maior, o que resultaria, possivelmente, em um tempo de execução não viável. <br>
+De forma geral, o programa, orientado à objeto, se mostra eficiente para encontrar os <i>K</i> itens mais valiosos de uma coleção de dados. Seu custo computacional geral é dado por <i> O(n * log k)</i>, onde <i>n</i> é o tamanho da coleção de dados e <i>K</i> é o número de itens mais valiosos. Além disso, vale ressaltar que quanto maior o arquivo "stopwords.txt" menor é o custo computacional associado, tendo em vista que tal operação minimiza o <i>n</i>. <br>
+Em se tratando de estruturas, observa-se que a utilização de métodos diferentes dos aqui utilizados (Hash - linear & Heap - logarítmo) tornariam o custo computacional maior, o que resultaria, possivelmente, em um tempo de execução não viável. <br>
 Por fim, afirma-se que o objetivo do trabalho foi cumprido com exelência, porém, o código é passivo de melhorias e otimizações, tais como aquelas discutidas na seção "Casos Sem Tratamento e Possíveis Erros".
 
 # Especificações do Dispositivo Utilizado
