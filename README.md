@@ -51,6 +51,7 @@ Em caso de armazenamento de elementos iguais, ocorre-se o fenômeno da colisão,
 
 O heap é uma estrura de dados utilizada para gerenciar e buscar o elemento de maior (Max Heap) ou menor (Min heap) importância, onde tal elemento, no final do processo, localiza-se na raíz da árvore (posição inicial). Para simular essa árvore, foi-se utilizado um vetor (<i>array</i>) para armazenar as <i>K</i> palavras, sendo que as posições i desse vetor possuem folhas, precisamente nas posições (2*i) e (2*i + 1). <br>
 Nó código, foi-se utilizado o Min Heap com o seguinte objetivo: se o elemento da raíz dos <i>K</i> itens selecionados fosse menor do que algum elemento armazenado na hash, haveria-se uma substituição entre tais elementos até que os os itens contidos no heap são os mais valiosos, atingindo, com isso, o objetivo final do trabalho. 
+- Custo: <i>O(log * n)</i>, onde <i>n</i> é o número de itens inseridos na estrutura em árvore, ou seja, <i>K</i>.
 
 Dado as estruturas principais do programa, evidencia-se as funções contidas na classe ```Methods.cpp``` que tornam possível todo o processo de leitura, armazenamento e classificação dos dados:
 
@@ -70,8 +71,7 @@ Dado as estruturas principais do programa, evidencia-se as funções contidas na
 - ```Cria_Hash```: Função responsável por tokenizar o texto, remover as stopwords e adicionar as palavras obtidas na hash. 
 - ```Cria_Heap```: Método que faz a administração e controle dos itens que estão no heap, substituindo a menor palavra contida no <i>array</i> por outra de maior frequência contida na hash, até que as <i>K</i> palavras mais frequêntes estejam localizadas nesse vetor que simula uma árvore. 
 - ```Opera_Heap```: Função responsável por administrar o próprio heap, realizando trocas (<i>swaps</i>) entre os elementos com a seguinte condição:
-  * Caso o elemento filho (posição 2*i e 2*i + 1) seja menor do que a posição pai (i), é realizado um traca entre as posições. Com isso, após tal processo, o menor elemento se encontrará na posição inicial (0) do <i>array</i>.
-- ```Re_Heap```: Cópia da função ```Opera_Heap```, contudo, possuindo o objetivo de conferir se todo pai (raíz) é menor que seus filhos (folhas) e, caso não seja, realizando trocas até que tal situação se torne verdade.
+  * Caso o elemento filho (posição 2*i e 2*i + 1) seja menor do que a posição pai (i), é realizado um troca entre as posições. Com isso, após tal processo, o menor elemento se encontrará na posição inicial (0) do <i>array</i>.
 
 Com a interconexão de todas essas funções, a seleção dos <i>K</i> itens mais valiosos do conjunto de dados se torna possível.
 
@@ -87,9 +87,6 @@ Com a interconexão de todas essas funções, a seleção dos <i>K</i> itens mai
 Para que as palavras contidas no arquivo "stopwords.txt" fossem excluidas da massa de dados a ser trabalhada, foi-se criada uma tabela hash auxiliar, a qual contém todas as palavras que devem ser desconsideradas na prática em questão. Assim, comparava-se cada palavra a ser inserida da hash principal com os elementos da hash auxiliar, e apenas os diferentes eram inseridos. Com isso, obteve-se a exclusão ou o não armazenamento das palavras definidas como stopwords.
 
 - Sintaxe: ```unordered_map <tipo_chave, tipo_item> hash_stop_words ```
-
-<strong><h4>Re_Heap :</h4></strong>
-Para pequenas massas de dados, não se garante que apenas a função ```Opera_Heap``` seja suficiente para garantir que todo pai (raíz) de posição i seja menor que seus filhos (folhas) de posições 2*i e 2*i + 1. Portanto, para esse caso, criou-se a função ```Re_Heap```, cujo objetivo maior é garantir que tal premissa seja verdadeira para qualquer massa de dados.
 
 # Casos Sem Tratamento e Possíveis Erros
 
