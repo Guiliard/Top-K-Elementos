@@ -115,7 +115,7 @@ Dado as estruturas principais do programa, evidencia-se as funções contidas na
 
 Com a interconexão de todas essas funções, a seleção dos <i>K</i> itens mais valiosos do conjunto de dados se torna possível.
 
-<strong><h4>Arquivos :</h4></strong>
+<strong><h4>Arquivos separados em pastas:</h4></strong>
 
 <div align=center>
 <img src="https://github.com/Guiliard/Top-K-Elementos/assets/127882640/6f72300c-ee9a-4212-a8e8-65a8eb437a76.png" width="850px">
