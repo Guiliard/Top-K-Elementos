@@ -138,7 +138,7 @@ Nó código, foi-se utilizado o Min Heap com o seguinte objetivo: se o elemento 
 
 Dado as estruturas principais do programa, evidencia-se as funções contidas na classe ```Methods.cpp``` que tornam possível todo o processo de leitura, armazenamento e classificação dos dados:
 
-- ```Leitura```: Função responsável por realizar a leitura dos múltiplos arquivos contidos na pasta "dataset", os quais se tornarão o conjunto de dados. É importante ressaltar que nem todas as palavras contidas no texto serão armazenadas, já que, palavras muito repetidas, tais como artigos e advérbios (informados no arquivo "stopwords.txt"), são descartadas. 
+- ```Leitura```: Função responsável por realizar a leitura dos múltiplos arquivos contidos na pasta "dataset", os quais se tornarão o conjunto de dados (forma dos arquivos do tipo ".data": "input{x}.data", sendo x um número maior ou igual a 1). É importante ressaltar que nem todas as palavras contidas no texto serão armazenadas, já que, palavras muito repetidas, tais como artigos e advérbios (informados no arquivo "stopwords.txt"), são descartadas. 
 - ```Tratamento_para_Hash```: Método que realiza um tratamento do texto lido, convertendo todas as letras maiúsculas para minúsculas e retirando os seguintes sinais de pontuação:
 
   * ','
