@@ -80,9 +80,52 @@ class Leitor
 Ademais, evidencia-se que a estrutura utilizada para armazenar as palavras do texto (tabela hash) encontra-se como atributo da classe ```Leitor``` declarada no arquivo  ```Methods.hpp```. Tal estrutura é pré-determinada, ou seja, não foi elaborada no código, mas sim utilizada a partir da inclusão de bibliotecas no programa. Já o heap foi construído pelo próprio programador, utilizando a lógica original do método de busca do elemento de maior prioridade. 
 <strong><h4>Hash :</h4></strong>
 
-A tabela hash, ou tabela de dispersão, é uma estrutura de dados utilizada para armazenar grandes conjunto de informações associados a chaves de forma eficiente. Essas chaves, que são utilizadas como indexação da tabela, são criadas por meio de funções matemáticas aleatórias, as quais dependem da versão do compilador (g++) e, também, da versão da própria linguagem.<br>
+A tabela hash, ou tabela de dispersão, é uma estrutura de dados utilizada para armazenar grandes conjunto de informações associados a chaves de forma eficiente. Essas chaves, que são utilizadas como indexação da tabela, são criadas por meio de funções matemáticas aleatórias, as quais dependem da versão do compilador (g++) e do tipo da hash utilizada. No programa em questão, por se tratar de uma hash de words (palavras), as quais possuem strings em sua composição, a função matemática associada é a <i>MurMurHashUnaligned2</i>.<br>
+
+```cpp
+template<>
+    struct hash<string>
+    : public __hash_base<size_t, string>
+    {
+      size_t
+      operator()(const string& __s) const noexcept
+      { return std::_Hash_impl::hash(__s.data(), __s.length()); }
+    };
+```
+- Especialização da hash definida para string (palavra).
+
+```cpp
+size_t _Hash_bytes(const void* ptr, size_t len, size_t seed)
+{ const size_t m = 0x5bd1e995; size_t hash = seed ^ len;
+  const char* buf = static_cast<const char*>(ptr);
+
+  while (len >= 4)
+  {
+    size_t k = unaligned_load(buf);
+    k *= m; k ^= k >> 24; k *= m; hash *= m; hash ^= k;
+    buf += 4;
+    len -= 4;
+  }
+  switch (len)
+  {
+    case 3:
+      hash ^= static_cast<unsigned char>(buf[2]) << 16;
+      [[gnu::fallthrough]];
+    case 2:
+      hash ^= static_cast<unsigned char>(buf[1]) << 8;
+      [[gnu::fallthrough]];
+    case 1:
+      hash ^= static_cast<unsigned char>(buf[0]);
+      hash *= m;
+  };
+  hash ^= hash >> 13; hash *= m;
+  hash ^= hash >> 15; return hash;
+}
+```
+- Implementação da hash.
+
 Para toda hash, sua forma de armazenar está associado a um ```pair```, ou seja, a duas inormações, sendo o ```pair.first``` o elemento que foi usado como idexação, e o ```pair.second``` o valor armazenado em si. <br>
-A principal característica de tais estruturas é a sua capacidade de acessar valores rapidamente, com custo <i>O(n) = 1</i>. No programa em questão, foi-se utilizado a hash ```unordered_map```, a qual faz parte da biblioteca padrão ```<map>``` da linguagem C++ e possui a não ordenação como principal característica, ou seja, para tal estrutura, a ordem dos dados pouco importa. <br>
+A principal característica de tais estruturas é a sua capacidade de acessar valores rapidamente, com custo <i>O(n) = 1</i>. Na solução apresentada, foi-se utilizado a hash ```unordered_map```, a qual faz parte da biblioteca padrão ```<map>``` da linguagem C++ e possui a não ordenação como principal característica, ou seja, para tal estrutura, a ordem dos dados pouco importa. <br>
 Em caso de armazenamento de elementos iguais, ocorre-se o fenômeno da colisão, ou seja, dois elementos possuem a mesma chave. Para que isso fosse evitado, e, também, com o intuito de realizar a contagem da frequência das palavras, desenvolveu-se a seguinte lógica: toda vez que ocorresse colisão, significaria que aquela palavra é repetida. Logo, as K palavras mais repetidas do conjunto de dados são as <i>K</i> palavras que mais geraram colisão na tabela hash. <br>
 - Sintaxe: ```unordered_map <tipo_chave, tipo_item> hash ```
 - Custo: <i>O(1) * n</i>, onde <i>n</i> é o número de itens (palavras) inseridas, ou seja, custo <i>n</i>.
