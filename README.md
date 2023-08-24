@@ -335,3 +335,12 @@ Um arquivo Makefile que realiza todo o procedimento de compilação e execução
 |  `make clean`          | Apaga a última compilação realizada contida na pasta build                                        |
 |  `make`                | Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build           |
 |  `make run`            | Executa o programa da pasta build após a realização da compilação                                 |
+
+
+# Referências
+
+[1] Stack Overflow - Discussion of C++. Disponível em: <https://stackoverflow.com/questions/19411742/what-is-the-default-hash-function-used-in-c-stdunordered-map>. Acesso em: 24/08/2023.
+
+[2] CORMEN, T. H. et al. Introduction to Algorithms, third edition. [s.l.] MIT Press, 2012. Acessado em 01 de Março de 2023.
+
+[3] PIRES, MICHEL - Repositório GitHub, @mpiress: HeapSort - Disponível em: https://github.com/mpiress/HeapSort. Acessado em 20 de Agosto de 2023.
