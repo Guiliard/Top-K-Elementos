@@ -112,19 +112,25 @@ void Leitor :: Opera_Heap()
     short int inicio = (K/2)-1;
     for(short int i = inicio; i > -1 ; i--)
     {
-        if(heap[i].contador > heap[i+i].contador)
-        {
-            word aux;
-            aux = heap [i];
-            heap[i] = heap [i+i];
-            heap[i+i] = aux;
-        }
-        if(heap[i].contador > heap[i+i+1].contador)
-        {
-            word aux;
-            aux = heap [i];
-            heap[i] = heap [i+i+1];
-            heap[i+i+1] = aux;
+	if(i+i+1 < K)
+	{
+	    if(heap[i].contador > heap[i+i+1].contador)
+	    {
+	        word aux;
+	        aux = heap [i];
+	        heap[i] = heap [i+i+1];
+	        heap[i+i+1] = aux;
+	    }
+	}
+	if(i+i+2 < K)
+	{
+            if(heap[i].contador > heap[i+i+2].contador)
+            {
+                word aux;
+                aux = heap [i];
+                heap[i] = heap [i+i+2];
+                heap[i+i+2] = aux;
+            }
         }
     }
 }
