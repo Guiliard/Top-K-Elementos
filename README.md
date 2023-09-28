@@ -232,25 +232,25 @@ livros que apenas terão isso dos seus autores; alguns nem tanto.
 ```
 Arquivo 1: 
 0 Palavra: escobar --> Frequência: 110
-1 Palavra: padre --> Frequência: 111
-2 Palavra: vez --> Frequência: 147
-3 Palavra: tempo --> Frequência: 120
-4 Palavra: mim --> Frequência: 162
-5 Palavra: capÍtulo --> Frequência: 148
-6 Palavra: outra --> Frequência: 138
-7 Palavra: tão --> Frequência: 121
-8 Palavra: dias --> Frequência: 191
-9 Palavra: olhos --> Frequência: 164
-10 Palavra: josé --> Frequência: 160
-11 Palavra: assim --> Frequência: 156
-12 Palavra: agora --> Frequência: 146
-13 Palavra: ainda --> Frequência: 139
-14 Palavra: nada --> Frequência: 133
-15 Palavra: disse --> Frequência: 124
-16 Palavra: capitu --> Frequência: 338
-17 Palavra: mãe --> Frequência: 228
-18 Palavra: tudo --> Frequência: 189
-19 Palavra: casa --> Frequência: 168
+1 Palavra: agora --> Frequência: 146
+2 Palavra: padre --> Frequência: 111
+3 Palavra: mim --> Frequência: 162
+4 Palavra: vez --> Frequência: 147
+5 Palavra: nada --> Frequência: 133
+6 Palavra: tempo --> Frequência: 120
+7 Palavra: dias --> Frequência: 191
+8 Palavra: olhos --> Frequência: 164
+9 Palavra: assim --> Frequência: 156
+10 Palavra: capÍtulo --> Frequência: 148
+11 Palavra: ainda --> Frequência: 139
+12 Palavra: outra --> Frequência: 138
+13 Palavra: disse --> Frequência: 124
+14 Palavra: tão --> Frequência: 121
+15 Palavra: capitu --> Frequência: 338
+16 Palavra: mãe --> Frequência: 228
+17 Palavra: tudo --> Frequência: 189
+18 Palavra: casa --> Frequência: 168
+19 Palavra: josé --> Frequência: 160
 ```
 
 <strong><h4>input2.data :</h4></strong>
@@ -292,25 +292,25 @@ Aqui está um exemplo.
 ```
 Arquivo 2: 
 0 Palavra: onde --> Frequência: 333
-1 Palavra: porque --> Frequência: 337
-2 Palavra: grande --> Frequência: 406
-3 Palavra: vez --> Frequência: 353
-4 Palavra: todos --> Frequência: 454
-5 Palavra: outros --> Frequência: 417
-6 Palavra: tempo --> Frequência: 373
-7 Palavra: bem --> Frequência: 359
-8 Palavra: pode --> Frequência: 524
-9 Palavra: assim --> Frequência: 454
-10 Palavra: outra --> Frequência: 435
-11 Palavra: aqui --> Frequência: 419
-12 Palavra: dois --> Frequência: 384
-13 Palavra: coisa --> Frequência: 383
-14 Palavra: dia --> Frequência: 366
-15 Palavra: menos --> Frequência: 360
-16 Palavra: ainda --> Frequência: 629
-17 Palavra: tudo --> Frequência: 560
-18 Palavra: outro --> Frequência: 474
-19 Palavra: homem --> Frequência: 471
+1 Palavra: dois --> Frequência: 384
+2 Palavra: porque --> Frequência: 337
+3 Palavra: todos --> Frequência: 454
+4 Palavra: grande --> Frequência: 406
+5 Palavra: dia --> Frequência: 366
+6 Palavra: vez --> Frequência: 353
+7 Palavra: pode --> Frequência: 524
+8 Palavra: assim --> Frequência: 454
+9 Palavra: aqui --> Frequência: 419
+10 Palavra: outros --> Frequência: 417
+11 Palavra: coisa --> Frequência: 383
+12 Palavra: tempo --> Frequência: 373
+13 Palavra: menos --> Frequência: 360
+14 Palavra: bem --> Frequência: 359
+15 Palavra: ainda --> Frequência: 629
+16 Palavra: tudo --> Frequência: 560
+17 Palavra: outro --> Frequência: 474
+18 Palavra: homem --> Frequência: 471
+19 Palavra: outra --> Frequência: 435
 ```
 
 # Conclusão
