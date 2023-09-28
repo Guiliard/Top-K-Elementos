@@ -132,7 +132,7 @@ Em caso de armazenamento de elementos iguais, ocorre-se o fenômeno da colisão,
 
 <strong><h4>Heap :</h4></strong>
 
-O heap é uma estrura de dados utilizada para gerenciar e buscar o elemento de maior (Max Heap) ou menor (Min heap) importância, onde tal elemento, no final do processo, localiza-se na raíz da árvore (posição inicial). Para simular essa árvore, foi-se utilizado um vetor (<i>array</i>) para armazenar as <i>K</i> palavras, sendo que as posições i desse vetor possuem folhas, precisamente nas posições (2*i) e (2*i + 1). <br>
+O heap é uma estrura de dados utilizada para gerenciar e buscar o elemento de maior (Max Heap) ou menor (Min heap) importância, onde tal elemento, no final do processo, localiza-se na raíz da árvore (posição inicial). Para simular essa árvore, foi-se utilizado um vetor (<i>array</i>) para armazenar as <i>K</i> palavras, sendo que as posições i desse vetor possuem folhas, precisamente nas posições (2*i) e (2*i + 1) ou (2*i+1) e (2*i+2), dependendo se a raíz (início do vetor) é 1 ou 0.<br>
 Nó código, foi-se utilizado o Min Heap com o seguinte objetivo: se o elemento da raíz dos <i>K</i> itens selecionados fosse menor do que algum elemento armazenado na hash, haveria-se uma substituição entre tais elementos até que os os itens contidos no heap são os mais valiosos, atingindo, com isso, o objetivo final do trabalho. 
 - Custo: <i>O(log * n)</i>, onde <i>n</i> é o número de itens inseridos na estrutura em árvore, ou seja, <i>K</i>.
 
